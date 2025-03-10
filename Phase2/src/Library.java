@@ -117,22 +117,27 @@ public class Library
         {
             System.out.println("Enter the author of the book");
             String author = in.nextLine();
-            for(Book temp : LibraryPojo.getBooks())
-            {
-
-                if(temp.getAuthor().equals(author))
-                {
-                    System.out.println(temp.getTitle());
-                }
-                else
-                {
-                    System.out.println("No books available for the mentioned author");
-                }
-            }
+            search(author);
         }
         else
         {
             System.out.println("Invalid option");
+        }
+    }
+
+    static public void search(String author)
+    {
+        for(Book temp : LibraryPojo.getBooks())
+        {
+
+            if(temp.getAuthor().equals(author))
+            {
+                System.out.println(temp.getTitle());
+            }
+            else
+            {
+                System.out.println("No books available for the mentioned author");
+            }
         }
     }
 

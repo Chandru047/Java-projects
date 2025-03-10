@@ -88,4 +88,23 @@ public class DigitalLibrary extends Library
             }
         }
     }
+
+    static public void listBooks()
+    {
+
+        if(LibraryPojo.getBooks().isEmpty())
+        {
+            System.out.println("No Books Currently Available");
+        }
+        for(Book temp : LibraryPojo.getBooks())
+        {
+            if(temp.isDigital())
+            {
+                System.out.println("---------------------------------------");
+                System.out.println(temp);
+                System.out.println("---------------------------------------");
+            }
+
+        }
+    }
 }
