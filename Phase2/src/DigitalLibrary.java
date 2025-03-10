@@ -1,6 +1,6 @@
 public class DigitalLibrary extends Library
 {
-    static public void start()
+    public void start()
     {
         loop:while (true)
         {
@@ -89,7 +89,7 @@ public class DigitalLibrary extends Library
         }
     }
 
-    static public void listBooks()
+    public void listBooks()
     {
 
         if(LibraryPojo.getBooks().isEmpty())

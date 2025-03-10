@@ -1,21 +1,21 @@
 import java.util.Scanner;
 
-public class Library
+public class Library implements Actions
 {
     static Scanner in = new Scanner(System.in);
-    static public void start()
+    public void start()
     {
         System.out.println("------------------------------");
         System.out.println("Welcome to the Library");
         System.out.println("Would u like to Digital Library Mode");
-
+        Library library = new DigitalLibrary();
         loop : while (true)
         {
 
             System.out.println("Would u like to Digital Library Mode(Y/n)");
             String opt = in.nextLine();
             if(opt.equals("y"))
-                DigitalLibrary.start();
+                library.start();
             System.out.println("Available options are listed below");
             System.out.println("1.Add   2.Remove  3.Search  4.Borrow 5.List Books 6.Exit");
             int choice = Integer.parseInt(in.nextLine());
@@ -47,7 +47,7 @@ public class Library
 
     }
 
-    static public void add()
+    public void add()
     {
         System.out.println("Enter the Title of the book : ");
         String title = in.nextLine();
@@ -65,7 +65,7 @@ public class Library
         LibraryPojo.getBooks().add(new Book(title , author , isbn , isDigital));
     }
 
-    static public void remove()
+     public void remove()
     {
         System.out.println("The Book can be removed using");
         System.out.println("1.title  2.ISBN");
@@ -91,7 +91,7 @@ public class Library
         }
     }
 
-    static public void search()
+    public void search()
     {
         System.out.println("The Book can be Searched using");
         System.out.println("1.title  2.Author");
@@ -125,7 +125,7 @@ public class Library
         }
     }
 
-    static public void search(String author)
+    public void search(String author)
     {
         for(Book temp : LibraryPojo.getBooks())
         {
@@ -141,7 +141,7 @@ public class Library
         }
     }
 
-    static public void borrow()
+    public void borrow()
     {
         System.out.println("The Book can be selected using");
         System.out.println("1.title  2.ISBN");
@@ -197,7 +197,7 @@ public class Library
         }
     }
 
-    static public void listBooks()
+    public void listBooks()
     {
         if(LibraryPojo.getBooks().isEmpty())
         {
@@ -206,7 +206,7 @@ public class Library
         for(Book temp : LibraryPojo.getBooks())
         {
             System.out.println("---------------------------------------");
-            System.out.println(temp.toString());
+            System.out.println(temp);
             System.out.println("---------------------------------------");
         }
     }

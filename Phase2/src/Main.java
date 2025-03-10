@@ -2,6 +2,7 @@ public class Main
 {
     public static void main(String[] args)
     {
-        Library.start();
+        Library library = new Library();
+        library.start();
     }
 }
